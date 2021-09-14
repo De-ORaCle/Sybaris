@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Sybaris - Making Healthcare Readily Accessible</title>
 
@@ -28,7 +29,7 @@
                     <a href="#">About Us</a>
                 </li>
                 <li class="btn">
-                    <a href="#">Find a Hospital</a>
+                    <a href="#hosp">Find a Hospital</a>
                 </li>
                 <li class="btn">
                     <a href="#">Virtual Consultation</a>
@@ -54,15 +55,51 @@
                     find the nearest hospital and consult with a real doctor. Virtual consultation are solely for minor symptoms that aren't extreme. Sybaris also allows you to contact a doctor if you wish to schedule a physical consultation
                 </p>
                 <p>
-                    <b>- Vrtual Pharmacy</b> <br><br>Sybaris displays a virtual pharmacy that can contact the closest pharmacy to you and get the drug you want delivered to you as quickly as possible. Sybaris will use your location to access the closest
+                    <b>- Virtual Pharmacy</b> <br><br>Sybaris displays a virtual pharmacy that can contact the closest pharmacy to you and get the drug you want delivered to you as quickly as possible. Sybaris will use your location to access the closest
                     pharmacy and display all the products they have so you can easily either get them yourselves or order for it.
                 </p>
             </div>
         </div>
     </section>
-    <section class="hospital-find">
-        <div class="hosp-search"></div>
-        <div class="ambulance-call"></div>
+    <section id="hosp" class="hospital-find">
+        <div class="hosp-container">
+            <h2 class="hosp-header">
+                Find a Hospital
+            </h2>
+            <div class="hosp-content">
+                <div class="hosp-right">
+                    <img src="images/hosp-img.png" alt="Find a Hospital">
+                </div>
+                <div class="hosp-left">
+                    <div class="hosp-search">
+                        <div class="search-container">
+                            <form>
+                                <input type="text" placeholder="Enter your location.." name="search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+
+                            <div class="search-location">
+                                <div class="hospitals">
+                                    <p class="hospital-name">Reddington Hospital</p>
+                                    <p class="hospital-type">Private Hospital</p>
+                                    <p class="hospital-location">12 Idowu Martins St, Victoria Island 106104, Lagos</p>
+                                </div>
+                                <div class="hospitals">
+                                    <p class="hospital-name">The Premier Specialists' Medical Centre, VICTORIA ISLAND</p>
+                                    <p class="hospital-type">Specialists Hospital</p>
+                                    <p class="hospital-location">off Ologun Agbaje Street, 7 Ogalade Cl, Victoria Island, Lagos</p>
+                                </div>
+                                <div class="hospitals">
+                                    <p class="hospital-name">Divine Medical Center Ltd.</p>
+                                    <p class="hospital-type">General Hospital</p>
+                                    <p class="hospital-location">53 Norman Williams St, Ikoyi 106104, Lagos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <script src="js/custom.js"></script>
 </body>
