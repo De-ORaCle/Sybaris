@@ -11,6 +11,10 @@ a {
     text-decoration: none;
 }
 
+p {
+    font-size: 14px;
+}
+
 
 /* Header */
 
@@ -53,6 +57,12 @@ header .nav-links a {
     margin-bottom: auto;
 }
 
+@media (max-width: 800px) {
+    header .nav-links {
+        display: none;
+    }
+}
+
 
 /* About Us */
 
@@ -69,4 +79,20 @@ section.introduction .intro-flex img {
 section.introduction .intro-flex .intro-detail {
     margin: 20px;
     padding-top: 8px;
+}
+
+@media (max-width: 1000px) {
+    p {
+        font-size: small;
+    }
+    section.introduction .intro-flex img {
+        width: 50%;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    section.introduction .intro-flex img {
+        width: 100%;
+    }
 }
