@@ -1,0 +1,68 @@
+body {
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Header */
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+header .nav-links ul {
+    display: flex;
+}
+
+header .nav-links ul:last-child {
+    margin-right: 20px;
+}
+
+header .nav-links ul li {
+    margin-left: 35px;
+}
+
+header .nav-links ul li:hover,
+.active {
+    padding-bottom: 3px;
+    border-bottom: 3px solid #fff;
+    border-radius: 3px;
+}
+
+header .nav-links a {
+    color: #fff;
+    font-size: 14px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+/* About Us */
+
+section.introduction .intro-flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+section.introduction .intro-flex img {
+    width: 500px;
+}
+
+section.introduction .intro-flex .intro-detail {
+    margin: 20px;
+    padding-top: 8px;
+}
