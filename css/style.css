@@ -18,6 +18,9 @@ header {
     background-color: black;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 header .logo img {
@@ -53,13 +56,14 @@ header .nav-links a {
 
 /* About Us */
 
-section.introduction .intro-flex {
-    display: flex;
-    justify-content: space-evenly;
+section.introduction {
+    margin-top: 60px;
 }
 
 section.introduction .intro-flex img {
+    float: left;
     width: 500px;
+    height: 500px;
 }
 
 section.introduction .intro-flex .intro-detail {
