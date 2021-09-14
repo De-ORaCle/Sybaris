@@ -210,3 +210,29 @@ section.virtual-consultation .consult-content img {
         width: 100%;
     }
 }
+
+
+/* Pharmacy */
+
+section.virtual-pharmacy h2 {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+section.virtual-pharmacy .pharm-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+section.virtual-pharmacy .pharm-content img {
+    width: 500px;
+}
+
+@media (max-width: 900px) {
+    section.virtual-pharmacy .pharm-content {
+        display: block;
+    }
+    section.virtual-pharmacy .pharm-content img {
+        width: 100%;
+    }
+}
