@@ -179,7 +179,34 @@ section.hospital-find .hosp-content img {
         margin-right: auto;
         margin-left: auto;
     }
+    .hosp-search input[type=text] {
+        width: 50%;
+        font-size: 13px;
+    }
 }
 
 
 /* Virtual Consultation */
+
+section.virtual-consultation h2 {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+section.virtual-consultation .consult-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+section.virtual-consultation .consult-content img {
+    width: 500px;
+}
+
+@media (max-width: 900px) {
+    section.virtual-consultation .consult-content {
+        display: block;
+    }
+    section.virtual-consultation .consult-content img {
+        width: 100%;
+    }
+}
