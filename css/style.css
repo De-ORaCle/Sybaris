@@ -236,3 +236,24 @@ section.virtual-pharmacy .pharm-content img {
         width: 100%;
     }
 }
+
+
+/* Footer */
+
+footer {
+    background-color: black;
+    padding: 1px;
+}
+
+footer p {
+    color: #ffff;
+    text-align: center;
+}
+
+footer .foot img {
+    display: block;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -18px;
+}
