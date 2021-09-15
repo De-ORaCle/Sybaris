@@ -12,3 +12,17 @@ for (var i = 0; i < btns.length; i++) {
         this.className += " active";
     });
 }
+// Get the container element
+var hbtnContainer = document.getElementById("hamDIV");
+
+// Get all buttons with class="btn" inside the container
+var hbtns = hbtnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < hbtns.length; i++) {
+    hbtns[i].addEventListener("click", function() {
+        var hcurrent = document.getElementsByClassName("hactive");
+        hcurrent[0].className = hcurrent[0].className.replace(" hactive", "");
+        this.className += " hactive";
+    });
+}
