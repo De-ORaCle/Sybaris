@@ -57,8 +57,8 @@ header .nav-links a {
     margin-top: auto;
     margin-bottom: auto;
 }
-header .hnav-links ul {
-}
+
+header .hnav-links ul {}
 
 header .hnav-links ul:last-child {
     margin-bottom: 20px;
@@ -81,12 +81,14 @@ header .hnav-links a {
     margin-top: auto;
     margin-bottom: auto;
 }
+
 .ham-img img {
     height: 45px;
 }
 
 .hmenu,
-.navicon, .toggle {
+.navicon,
+.toggle {
     display: none;
 }
 
@@ -104,14 +106,15 @@ header .hnav-links a {
         display: inline;
         width: 25px;
         height: 10px;
-        margin-top: 20px;
-        margin-right: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 15px;
         float: right;
-          }
+    }
     .navicon {
-        background: transparent;
-        padding-bottom: 32px;
-        padding-right: 35px;
+        background: rgb(46, 28, 28);
+        padding-bottom: 20px;
+        padding-right: 6px;
         position: relative;
         display: block;
         z-index: 99;
@@ -153,18 +156,16 @@ header .hnav-links a {
     .toggle {
         display: block;
         position: absolute;
-        margin: 20px auto;
-        width: 30%;
         background-color: rgba(25, 25, 25, .95);
-        padding: 15px;
+        width: 80%;
         top: 50%;
         left: 50%;
         opacity: 0;
         transition: ease-in 0.5s all;
         transform: translate(-50%, -200%);
-        min-width: 320px;
         min-height: 360px;
         z-index: 99999999999999;
+        padding-top: 7px;
     }
     .toggle--active {
         display: block;
@@ -180,10 +181,10 @@ header .hnav-links a {
         display: block;
         padding: 0;
         border-left-color: rgba(0, 0, 0, 0.25);
+        margin-left: -23px;
     }
     #hamDIV li a:hover {
-        color: #db5523;
-        border-bottom: 2px solid #db5523;
+        color: #a09f9f;
         transition: linear 0.5s all;
         transform: scale(1.15);
         font-weight: 700;
@@ -223,7 +224,7 @@ section.introduction .intro-flex .intro-detail {
     section.introduction .intro-flex img {
         width: 100%;
     }
-    #map{
+    #map {
         width: 100%;
     }
 }
@@ -294,11 +295,13 @@ section.hospital-find .hosp-content img {
 .hosp-search .hospitals p {
     margin: 0px;
 }
-#map{
+
+#map {
     overflow: visible;
 }
+
 @media (max-width: 1000px) {
-    #map{
+    #map {
         max-width: 90vw;
     }
     section.hospital-find {
