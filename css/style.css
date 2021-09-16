@@ -210,6 +210,10 @@ section.introduction .intro-flex .intro-detail {
     margin-bottom: 43px;
 }
 
+.disappear {
+    text-align: center;
+}
+
 @media (max-width: 1000px) {
     p {
         font-size: small;
@@ -217,6 +221,9 @@ section.introduction .intro-flex .intro-detail {
     section.introduction .intro-flex img {
         width: 50%;
         height: auto;
+    }
+    .disappear {
+        font-size: 18px;
     }
 }
 
@@ -226,6 +233,9 @@ section.introduction .intro-flex .intro-detail {
     }
     #map {
         width: 100%;
+    }
+    .disappear {
+        display: none;
     }
 }
 
