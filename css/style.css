@@ -345,12 +345,44 @@ section.virtual-consultation .consult-content img {
     width: 500px;
 }
 
-@media (max-width: 900px) {
+.consult-content .consult-info {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background-color: #e4e4e4;
+    height: 60%;
+    box-shadow: 100px #000;
+    padding-bottom: 40px;
+}
+
+.consult-content .consult-info h4 {
+    margin-top: 0px;
+}
+
+.consult-content .consult-info a {
+    font-size: small;
+    color: #ffff;
+    border: 0.1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #000;
+}
+
+.consult-content .consult-info a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+@media (max-width: 1050px) {
     section.virtual-consultation .consult-content {
         display: block;
     }
     section.virtual-consultation .consult-content img {
         width: 100%;
+    }
+    .consult-content .consult-info {
+        margin-top: -20px;
     }
 }
 
