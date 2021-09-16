@@ -399,6 +399,17 @@ section.virtual-consultation .consult-content img {
 
 
 /* Pharmacy */
+#drugs{
+    display: grid;
+    grid-gap: 50px;
+    margin-top: 10px;
+}
+.drug img{
+    float: left; border: rgb(209, 173, 173) solid 0.5px; border-radius: 10%;
+}
+.drug p{
+    margin-top: 3px;
+}
 
 section.virtual-pharmacy h2 {
     text-align: center;
@@ -407,10 +418,10 @@ section.virtual-pharmacy h2 {
 
 section.virtual-pharmacy .pharm-content {
     display: flex;
-    justify-content: space-between;
+  /*  justify-content: space-between; */
 }
 
-section.virtual-pharmacy .pharm-content img {
+section.virtual-pharmacy .pharm-right img {
     width: 500px;
 }
 
