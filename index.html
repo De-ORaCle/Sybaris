@@ -1,115 +1,199 @@
 <!DOCTYPE html>
-<html>
-    <head>
-<style>
-    #map-canvas {
-  height: 380px;
-  width: 540px;
-}
-</style>
-<script>
-    function locate()
-{
-    var lat = 0.0; var lon = 0.0;
-  if(navigator.geolocation)
-  {
-    var optn = {enableHighAccuracy : true, timeout : 30000, maximumage: 0};
-    navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
-    
-  }
-  else
-  {
-    alert('Geolocation is not Supported by your Browser...');
-  }
-}
-  function showPosition(position)
-  {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-    start(lat, lon);
-}
+<html lang="en">
 
-function showError(error)
-{
-	switch(error.code)
-  {
-		case error.PERMISSION_DENIED:
-			var denied = 'User denied the request for Geolocation';
-      alert('Please Refresh This Page and Allow Location Permission...');
-      break;
-		case error.POSITION_UNAVAILABLE:
-			var unavailable = 'Location information is unavailable';
-			break;
-		case error.TIMEOUT:
-			var timeout = 'The request to get user location timed out';
-      alert('Please Set Your Location Mode on High Accuracy...');
-			break;
-		case error.UNKNOWN_ERROR:
-			var unknown = 'An unknown error occurred';
-			break;
-	}
-}
-    function start(lat, lon) {
-SearchPlaceMap = {
-    init: function () {
-        var self = this;
-        var location = new google.maps.LatLng(lat, lon);
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        self.map = new google.maps.Map(document.getElementById('map-canvas'), {
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            center: location,
-            zoom: 15
-        });
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        /*verify location to search,
-         *search radius
-         *(alternately you can also search by setting bounds),
-         *and type of places to search - in this case `hospital`
-         */
-        var request = {
-            location: location,
-            radius: 500,
-            types: ['hospital', 'doctor', 'dentist', 'drugstore',  'pharmacy']
-        };
+    <title>Sybaris - Making Healthcare Readily Accessible</title>
 
-        self.infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(self.map);
-        service.nearbySearch(request, function (results, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    self.createMarker(results[i]);
-                }
-            }
-        });
-    },
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-    createMarker: function (place) {
-        var self = this;
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-            map: self.map,
-            position: place.geometry.location
-        });
+<body>
+    <header>
+        <div class="logo">
+            <a href="#"><img src="images/logo-white.png" alt="Sybaris"></a>
+        </div>
+        <div class="toggle">
+            <center>
+                <div class="ham-img">
+                    <img src="images/logo-white.png" alt="Sybaris">
+                </div>
+            </center>
+            <nav id="hamDIV" class="hnav-links" style="display: block;">
+                <center>
+                    <ul>
+                        <li class="btn hactive">
+                            <a href="#">About Us</a>
+                        </li>
+                        <li class="btn">
+                            <a href="#hosp">Find a Hospital</a>
+                        </li>
+                        <li class="btn">
+                            <a href="#consult">Schedule Consultation</a>
+                        </li>
+                        <li class="btn">
+                            <a href="#pharm">Pharmacy</a>
+                        </li>
+                    </ul>
+                </center>
+            </nav>
+        </div>
+        <a href="#" class="navicon" id="ico" onclick="ham()"></a>
+        <div id="myDIV" class="nav-links">
+            <ul>
+                <li class="btn active">
+                    <a href="#">About Us</a>
+                </li>
+                <li class="btn">
+                    <a href="#hosp">Find a Hospital</a>
+                </li>
+                <li class="btn">
+                    <a href="#consult">Schedule Consultation</a>
+                </li>
+                <li class="btn">
+                    <a href="#pharm">Pharmacy</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section class="introduction">
+        <div class="intro-flex">
+            <img src="images/intro-img.png" alt="About Us">
+            <div class="intro-detail">
+                <h2 class="disappear">About Us</h2>
+                <p>Sybaris is an online web application that allow you to have access to medical care easily and quickly. <br><br>Sybaris solves three basic problems: Helping you find the nearest hospitals during emergencies, giving you access to virtual
+                    consultation concerning basic symptoms that the you may be experiencing and providing a pharmacy where you can easily get normal medicines that are readily available in physical pharmacies.</p>
+                <p>
+                    <b>- Helping you find the nearest hospitals during emergencies</b> <br> <br> In this case, Sybaris accesses your location and immediately shows you the nearest medical centre to you. Sybaris also be works on reccommending the best
+                    hospital for you if you are diagnosed with any disease during consultation. Sybaris can also help you call an ambulance for extreme emergencies.
+                </p>
+                <p>
+                    <b>- Schedule a Consultation with a Doctor</b> <br><br> No one wants to go to the doctor's office to wait hours before being offered audience. To solve this problem, Sybaris allows you to schedule a consultation with a doctor for non-emergency
+                    issues like consultations with gynecologists, dentists. etc. This feature is for consultation with specialists, you can schedule a meeting with the optamologist, orthopedrician, dentist or other specialist doctors. After scheduling,
+                    your meeting time will be sent to your mail.
+                </p>
+                <p>
+                    <b>- Virtual Pharmacy</b> <br><br>Sybaris displays a virtual pharmacy that can contact the closest pharmacy to you and get the drug you want delivered to you as quickly as possible. Sybaris will use your location to access the closest
+                    pharmacy and display all the products they have so you can easily either get them yourselves or order for it.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="hosp" class="hospital-find">
+        <div class="hosp-container">
+            <h2 class="hosp-header">
+                Find a Hospital
+            </h2>
+            <div class="hosp-content">
+                <div class="hosp-right">
+                    <img src="images/hosp-img.png" width="350px" alt="Find a Hospital">
+                </div>
+                <div id="map">
+                    <iframe src="map_frame.html"></iframe>
+                </div>
+                <div class="hosp-left">
+                    <div class="hosp-search">
+                        <div class="search-container">
+                            <form>
+                                <input type="text" placeholder="Enter your location.." name="search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
 
-        google.maps.event.addListener(marker, 'click', function () {
-            self.infowindow.setContent(place.name);
-            self.infowindow.open(self.map, this);
-        });
-    }
-}
-
-SearchPlaceMap.init();
-
-};
+                            <div class="search-location">
+                                <div class="hospitals">
+                                    <p class="hospital-name">Reddington Hospital</p>
+                                    <p class="hospital-type">Private Hospital</p>
+                                    <p class="hospital-location">12 Idowu Martins St, Victoria Island 106104, Lagos</p>
+                                </div>
+                                <div class="hospitals">
+                                    <p class="hospital-name">The Premier Specialists' Medical Centre, VICTORIA ISLAND</p>
+                                    <p class="hospital-type">Specialists Hospital</p>
+                                    <p class="hospital-location">off Ologun Agbaje Street, 7 Ogalade Cl, Victoria Island, Lagos</p>
+                                </div>
+                                <div class="hospitals">
+                                    <p class="hospital-name">Divine Medical Center Ltd.</p>
+                                    <p class="hospital-type">General Hospital</p>
+                                    <p class="hospital-location">53 Norman Williams St, Ikoyi 106104, Lagos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="consult" class="virtual-consultation">
+        <div class="consult-container">
+            <div class="consult-header">
+                <h2>Schedule a Consultation</h2>
+            </div>
+            <div class="consult-content">
+                <div class="consult-right">
+                    <img src="images/consult-img.png" alt="Consult with a doctor">
+                </div>
+                <div class="consult-left">
+                    <div class="consult-info">
+                        <h4>Fill a form, fix a date and get your appointment</h4>
+                        <p>
+                            Are you facing a health condition, issue or challenge that require you seeing a specialist doctor? Well, we can help you schedule a meeting with any specialist doctor at your own comfortable date. Just make sure you pick a date at least three days ahead
+                            so the doctor can fix your appointment appropraitely.
+                        </p>
+                        <p>
+                            We currently have provisions for the following specialists: <br><br> - Psycologists&nbsp;&nbsp;&nbsp;- Obsidian&nbsp;&nbsp;&nbsp;- Physoitherapist <br> - Gyneolgists&nbsp;&nbsp;&nbsp;- Optamologist&nbsp;&nbsp;&nbsp;- Optician
+                            <br> - Dentist&nbsp;&nbsp;&nbsp;- Psychiatrist&nbsp;&nbsp;&nbsp;- Orthopedrist <br><br>Click the link below to fill the form.
+                        </p>
+                        <br>
+                        <a href="https://quabbly.live/2e9b3926-f76b-4974-a0f9-532f20796eca">Schedule an Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pharm" class="virtual-pharmacy">
+        <div class="pharm-container">
+            <div class="pharm-header">
+                <h2>Pharmacy</h2>
+            </div>
+            <div class="pharm-content">
+                <div class="pharm-right">
+                    <img src="images/pharm-img.png" alt="Consult with a doctor">
+                </div> <div id="drugs">
+                    <div class="drug">
+                        <img src="images/paracetamol.jpg" width="110px" height="110px">
+                   <p>Paracetamol</p>
+                    </div>
+                    </div>
+                <div class="pharm-left">
+                   
+                    <!-- The form for the consultation comes in here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="foot">
+            <img src="images/logo-white.png" alt="Sybaris">
+            <p>&#169; Copyright 2021 Sybaris</p>
+        </div>
+    </footer>
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function ham() {
+            $('.navicon').toggleClass('navicon--active');
+            $('.toggle').toggleClass('toggle--active');
+        }
     </script>
-    </head>
-    <body onload="locate()">
-        <div id="map-canvas"></div>
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHWt-t2hcMaGHamuxJRNJmBLwDSWdoIf4&callback=initMap&libraries=&v=weekly"
-        async
-      ></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    </body>
+</body>
+
 </html>
