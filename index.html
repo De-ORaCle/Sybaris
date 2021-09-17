@@ -58,7 +58,7 @@
                     <a href="#hosp">Find a Hospital</a>
                 </li>
                 <li class="btn">
-                    <a href="#consult">Schedule Consultation</a>
+                    <a href="#consult1">Schedule Consultation</a>
                 </li>
                 <li class="btn">
                     <a href="#pharm">Pharmacy</a>
@@ -74,8 +74,8 @@
                 <p>Sybaris is an online web application that allow you to have access to medical care easily and quickly. <br><br>Sybaris solves three basic problems: Helping you find the nearest hospitals during emergencies, giving you access to virtual
                     consultation concerning basic symptoms that the you may be experiencing and providing a pharmacy where you can easily get normal medicines that are readily available in physical pharmacies.</p>
                 <p>
-                    <b>- Helping you find the nearest hospitals during emergencies</b> <br> <br> In this case, Sybaris accesses your location and immediately shows you the nearest medical centre to you. Sybaris also be works on reccommending the best
-                    hospital for you if you are diagnosed with any disease during consultation. Sybaris can also help you call an ambulance for extreme emergencies.
+                    <b>- Helping you find the nearest hospitals during emergencies</b> <br> <br> In this case, Sybaris accesses your location and immediately shows you the nearest medical centre to you. Sybaris also works on reccommending the best hospital
+                    for you if you are diagnosed with any disease during consultation. Sybaris can also help you call an ambulance for extreme emergencies.
                 </p>
                 <p>
                     <b>- Schedule a Consultation with a Doctor</b> <br><br> No one wants to go to the doctor's office to wait hours before being offered audience. To solve this problem, Sybaris allows you to schedule a consultation with a doctor for non-emergency
@@ -132,7 +132,7 @@
             </div>
         </div>
     </section>
-    <section id="consult" class="virtual-consultation">
+    <section id="consult" class="virtual-consultation mobile-mode">
         <div class="consult-container">
             <div class="consult-header">
                 <h2>Schedule a Consultation</h2>
@@ -159,6 +159,33 @@
             </div>
         </div>
     </section>
+    <section id="consult1" class="virtual-consultation desktop-mode">
+        <div class="consult-container">
+            <div class="consult-header">
+                <h2>Schedule a Consultation</h2>
+            </div>
+            <div class="consult-content">
+                <div class="consult-left">
+                    <div class="consult-info">
+                        <h4>Fill a form, fix a date and get your appointment</h4>
+                        <p>
+                            Are you facing a health condition, issue or challenge that require you seeing a specialist doctor? Well, we can help you schedule a meeting with any specialist doctor at your own comfortable date. Just make sure you pick a date at least three days ahead
+                            so the doctor can fix your appointment appropraitely.
+                        </p>
+                        <p>
+                            We currently have provisions for the following specialists: <br><br> - Psycologists&nbsp;&nbsp;&nbsp;- Obsidian&nbsp;&nbsp;&nbsp;- Physoitherapist <br> - Gyneolgists&nbsp;&nbsp;&nbsp;- Optamologist&nbsp;&nbsp;&nbsp;- Optician
+                            <br> - Dentist&nbsp;&nbsp;&nbsp;- Psychiatrist&nbsp;&nbsp;&nbsp;- Orthopedrist <br><br>Click the link below to fill the form.
+                        </p>
+                        <br>
+                        <a href="https://quabbly.live/2e9b3926-f76b-4974-a0f9-532f20796eca">Schedule an Appointment</a>
+                    </div>
+                </div>
+                <div class="consult-right">
+                    <img src="images/consult-img.png" alt="Consult with a doctor">
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="pharm" class="virtual-pharmacy">
         <div class="pharm-container">
             <div class="pharm-header">
@@ -175,13 +202,34 @@
                     </p>
                     <p>NOTE: Consulting with our pharmacist is for minor symptoms. If symptoms persist after three days, see a doctor.</p>
                     <div class="pharm-links">
-                        <a href="" class="consult-pharm">Consult with our Pharmacist</a>
-                    </div>
-                    <a href="" class="submit-prescription">Submit Prescription</a>
-                    <div id="drugs">
-                        <div class="drug">
+                        <button id="myBtn">Consult with our Pharmacist</button>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div data-tf-widget="TuwtiqnS" data-tf-opacity="100" data-tf-chat style="width:100%;height:100%;"></div>
+                                <script src="//embed.typeform.com/next/embed.js"></script>
+                            </div>
+
                         </div>
-                        <div class="drug"></div>
+                    </div>
+                    <div class="pharm-links">
+                        <button id="myBtn1">Submit Subscription</button>
+
+                        <!-- The Modal -->
+                        <div id="myModal1" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div data-tf-widget="TuwtiqnS" data-tf-opacity="100" data-tf-chat style="width:100%;height:100%;"></div>
+                                <script src="//embed.typeform.com/next/embed.js"></script>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
