@@ -104,10 +104,10 @@
                 <div class="hosp-left">
                     <div class="hosp-search">
                         <div class="search-container">
-                            <form>
-                                <input type="text" placeholder="Enter your location.." name="search">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
+                            <!--<form>-->
+                                <input type="text" id="mapate_text" placeholder="Enter your location.." name="search">
+                                <button type="submit" onclick="mapate()"><i class="fa fa-search"></i></button>
+                            <!--</form>-->
 
                             <div class="search-location">
                                 <div class="hospitals">
@@ -249,6 +249,16 @@
             $('.toggle').toggleClass('toggle--active');
         }
     </script>
+    <script>
+        function mapate(){
+            var pin = document.getElementById("mapate_text").value.split(' ').join('+');
+            var src = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+pin+"&key=AIzaSyBHWt-t2hcMaGHamuxJRNJmBLwDSWdoIf4"
+            var prc = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBHWt-t2hcMaGHamuxJRNJmBLwDSWdoIf4&q="+pin;
+            document.getElementById('search_frame').src = prc;
+            document.getElementById('search_frame').style.display = 'inline';
+        }
+    </script>
+    <iframe src="src" id="search_frame" width="80vw" height="80vh" style="display: none; position: fixed; z-index: 9999; top: 5%; width: 80%; height: 80%; left: 5%;"></iframe>
 </body>
 
 </html>
