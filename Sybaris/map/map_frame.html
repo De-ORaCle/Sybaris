@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+    #map-canvas {
+  height: 380px;
+  width: 540px;
+}
+</style>
+<script>
+    function locate()
+{
+    var lat = 0.0; var lon = 0.0;
+  if(navigator.geolocation)
+  {
+    var optn = {enableHighAccuracy : true, timeout : 30000, maximumage: 0};
+    navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+    
+  }
+  else
+  {
+    alert('Geolocation is not Supported by your Browser...');
+  }
+}
+  function showPosition(position)
+  {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+    start(lat, lon);
+}
+
+function showError(error)
+{
+	switch(error.code)
+  {
+		case error.PERMISSION_DENIED:
+			var denied = 'User denied the request for Geolocation';
+      alert('Please Refresh This Page and Allow Location Permission...');
+      break;
+		case error.POSITION_UNAVAILABLE:
+			var unavailable = 'Location information is unavailable';
+			break;
+		case error.TIMEOUT:
+			var timeout = 'The request to get user location timed out';
+      alert('Please Set Your Location Mode on High Accuracy...');
+			break;
+		case error.UNKNOWN_ERROR:
+			var unknown = 'An unknown error occurred';
+			break;
+	}
+}
+    function start(lat, lon) {
+SearchPlaceMap = {
+    init: function () {
+        var self = this;
+        var location = new google.maps.LatLng(lat, lon);
+
+        self.map = new google.maps.Map(document.getElementById('map-canvas'), {
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: location,
+            zoom: 15
+        });
+
+        /*verify location to search,
+         *search radius
+         *(alternately you can also search by setting bounds),
+         *and type of places to search - in this case `hospital`
+         */
+        var request = {
+            location: location,
+            radius: 500,
+            types: ['hospital', 'doctor', 'dentist', 'drugstore',  'pharmacy']
+        };
+
+        self.infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(self.map);
+        service.nearbySearch(request, function (results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    self.createMarker(results[i]);
+                }
+            }
+        });
+    },
+
+    createMarker: function (place) {
+        var self = this;
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+            map: self.map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            self.infowindow.setContent(place.name);
+            self.infowindow.open(self.map, this);
+        });
+    }
+}
+
+SearchPlaceMap.init();
+
+};
+    </script>
+    </head>
+    <body onload="locate()">
+        <div id="map-canvas"></div>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHWt-t2hcMaGHamuxJRNJmBLwDSWdoIf4&callback=initMap&libraries=&v=weekly"
+        async
+      ></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </body>
+</html>
