@@ -1,4 +1,4 @@
-# Sybaris
+![Sybaris](https://sybaris.netlify.app/images/logo-white.png)
 
 Sybaris is an online web application that allow you to have access to medical care easily and quickly.
 
