@@ -58,8 +58,6 @@ header .nav-links a {
     margin-bottom: auto;
 }
 
-header .hnav-links ul {}
-
 header .hnav-links ul:last-child {
     margin-bottom: 20px;
 }
@@ -264,22 +262,15 @@ section.hospital-find h2 {
 
 section.hospital-find .hosp-content {
     display: flex;
-    justify-content: space-between;
     padding-left: 30px;
     padding-right: 30px;
 }
 
 section.hospital-find .hosp-content img {
-    width: 350px;
+    width: 50%;
 }
 
-.hosp-left {
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-left: 10px;
-}
-
-.hosp-search input[type=text] {
+.hosp-content input[type=text] {
     padding: 14px;
     border: 1px solid black;
     border-radius: 4px;
@@ -288,12 +279,13 @@ section.hospital-find .hosp-content img {
     font-size: 17px;
 }
 
-.hosp-search form {
+.hosp-content form {
     text-align: right;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
-.hosp-search form button {
+.hosp-content form button {
     font-size: 20px;
     height: 40px;
     width: 40px;
@@ -301,23 +293,30 @@ section.hospital-find .hosp-content img {
     margin-left: -10px;
 }
 
-.hosp-search .search-location {
-    margin-top: 25px;
-}
-
-.hosp-search .hospitals {
-    margin: 10px;
-    border: 1px solid #969696;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.hosp-search .hospitals p {
-    margin: 0px;
-}
-
 #map {
     overflow: visible;
+}
+
+#map iframe {
+    width: 200%;
+    margin-left: -300px;
+    height: 300px;
+}
+
+.map-box div {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.map-box div button {
+    width: 40px;
+    height: 40px;
+    margin-top: 13px;
+    padding: 5px;
+}
+
+.map-box div button i {
+    font-size: 23px;
 }
 
 @media (max-width: 1000px) {
@@ -341,11 +340,18 @@ section.hospital-find .hosp-content img {
         width: 50%;
         font-size: 13px;
     }
-}
-
-#map iframe {
-    width: 100%;
-    height: 389px;
+    #map iframe {
+        width: 100%;
+        margin-left: 0px;
+        height: 500px;
+    }
+    .map-box div {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .map-box div button {
+        margin-top: 13px;
+    }
 }
 
 
